@@ -1,0 +1,144 @@
+/* ==================================================
+   style.css — Modern lightweight styles with CSS variables
+   - Mobile-first
+   - Supports dark mode via html[data-theme]
+   - To rebrand: edit the color variables under /* ROOT COLORS */
+   ================================================== */
+
+/* ROOT COLORS: edit these to change primary branding */
+:root{
+  /* Primary brand colors */
+  --color-primary: #0b63d7; /* blue - change for rebranding */
+  --color-accent: #d33a2c;  /* red - accent */
+
+  /* Surface & typography */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+
+  /* Shadows / radii */
+  --shadow: 0 6px 18px rgba(11,99,215,0.08);
+  --radius: 12px;
+  --gap: 20px;
+  --transition: 300ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* LIGHT MODE (default) */
+/* All colors above apply for light mode. */
+
+/* DARK MODE */
+/* A soft dark palette that is not pure black for a modern feel. */
+html[data-theme="dark"]{
+  --bg: #0f1724; /* background */
+  --surface: #0b1220; /* cards */
+  --muted: #9aa6b2; /* muted text */
+  --text: #e6eef8; /* main text */
+  --shadow: 0 6px 18px rgba(2,8,23,0.6);
+}
+
+/* BASE RESET */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  transition:background var(--transition), color var(--transition);
+}
+
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;backdrop-filter:blur(6px);z-index:40;border-bottom:1px solid rgba(0,0,0,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));transition:background var(--transition)}
+html[data-theme="dark"] .navbar{background:linear-gradient(180deg,rgba(6,10,18,0.7),rgba(6,10,18,0.6));border-bottom:1px solid rgba(255,255,255,0.04)}
+.nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand .logo{font-weight:700;color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:16px;align-items:center}
+.nav-link{color:var(--text);text-decoration:none;padding:8px;border-radius:8px;transition:background var(--transition)}
+.nav-link:hover{background:rgba(11,99,215,0.06)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.icon-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 10px;border-radius:8px;cursor:pointer}
+html[data-theme="dark"] .icon-btn{border:1px solid rgba(255,255,255,0.06)}
+.hamburger{display:none}
+
+/* HERO */
+.hero{padding:70px 0 80px}
+.hero-inner{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+.hero-copy h1{font-size:clamp(1.6rem,4vw,2.6rem);margin:0 0 12px}
+.lead{color:var(--muted);margin:0 0 18px}
+.hero-ctas{display:flex;gap:12px}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;border:1px solid transparent;transition:transform var(--transition),box-shadow var(--transition)}
+.btn.primary{background:var(--color-primary);color:white;box-shadow:var(--shadow)}
+.btn.ghost{background:transparent;color:var(--text);border-color:rgba(0,0,0,0.06)}
+.btn:hover{transform:translateY(-3px)}
+.hero-visual{display:flex;justify-content:center}
+.hero-card{padding:18px;background:var(--surface);box-shadow:var(--shadow);border-radius:var(--radius);max-width:360px}
+
+/* SECTIONS */
+.section{padding:60px 0}
+.section-title{font-size:1.4rem;margin:0 0 18px}
+.grid-3{display:grid;grid-template-columns:1fr;gap:18px}
+.grid-2{display:grid;grid-template-columns:1fr;gap:18px}
+.grid-4{display:grid;grid-template-columns:1fr;gap:18px}
+.cards{display:grid;gap:18px}
+.card{padding:18px;background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform var(--transition),box-shadow var(--transition)}
+.card:hover{transform:translateY(-6px)}
+.card-icon{font-size:28px}
+.feature{text-align:center;padding:28px}
+.feature-icon{font-size:28px;margin-bottom:8px}
+
+.map iframe{width:100%;height:320px;border:0;border-radius:8px}
+
+.contact-grid{display:grid;grid-template-columns:1fr;gap:18px}
+
+.site-footer{padding:28px 0;background:transparent;border-top:1px solid rgba(0,0,0,0.04);text-align:center}
+html[data-theme="dark"] .site-footer{border-top:1px solid rgba(255,255,255,0.04)}
+
+/* Floating WhatsApp */
+.whatsapp-fab{position:fixed;right:20px;bottom:20px;background:var(--color-primary);color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(11,99,215,0.18);text-decoration:none;transition:transform var(--transition)}
+.whatsapp-fab:hover{transform:translateY(-6px)}
+.whatsapp-fab{animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* Fade-in animation for scroll */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 600ms ease,transform 600ms ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* ==========================================
+   SERVICE CARDS / ACCORDION
+   - Styles for the expandable service cards
+   - Edit spacing / radii here if needed.
+   ========================================== */
+.accordion{display:flex;flex-direction:column;gap:12px}
+.accordion-item .accordion-header{display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:0;padding:14px;cursor:pointer;text-align:left}
+.accordion-header .title{display:flex;flex-direction:column;align-items:flex-start}
+.accordion-header .subtitle{font-size:0.9rem;color:var(--muted)}
+.accordion-header .chev{font-size:1.1rem;opacity:0.8}
+.accordion-panel{max-height:0;overflow:hidden;transition:max-height 320ms ease;padding:0 14px}
+.accordion-item.open .accordion-panel{padding:12px 14px;max-height:320px}
+.muted-note{color:var(--muted);margin-top:12px}
+
+/* ACCORDION BUTTON FOCUS */
+.accordion-header:focus{outline:2px solid rgba(11,99,215,0.12);outline-offset:2px;border-radius:8px}
+
+/* Responsive layouts */
+@media(min-width:700px){
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  .hero-inner{grid-template-columns:1fr 420px}
+  .nav-links{display:flex}
+  .hamburger{display:none}
+}
+
+@media(max-width:699px){
+  .nav-links{display:none}
+  .hamburger{display:inline-block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;right:16px;top:64px;background:var(--surface);padding:12px;border-radius:8px;box-shadow:var(--shadow)}
+}
+
