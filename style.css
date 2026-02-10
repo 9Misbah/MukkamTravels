@@ -2,26 +2,30 @@
    style.css — Modern lightweight styles with CSS variables
    - Mobile-first
    - Supports dark mode via html[data-theme]
-   - To rebrand: edit the color variables under /* ROOT COLORS */
-   ================================================== */
+   - To rebrand: edit the color variables under ROOT COLORS
+==================================================*/
 
 /* ROOT COLORS: edit these to change primary branding */
-:root{
+:root {
   /* Primary brand colors */
-  --color-primary: #0b63d7; /* blue - change for rebranding */
-  --color-accent: #d33a2c;  /* red - accent */
+  --color-primary: #0b63d7;
+  /* blue - change for rebranding */
+  --color-accent: #d33a2c;
+  /* red - accent */
 
   /* Surface & typography */
-  --bg: #ffffff;
+  --bg: #fffafa;
+  /* very soft red/cream background */
   --surface: #ffffff;
+  /* white for cards */
   --muted: #6b7280;
   --text: #0f172a;
 
   /* Shadows / radii */
-  --shadow: 0 6px 18px rgba(11,99,215,0.08);
+  --shadow: 0 6px 18px rgba(11, 99, 215, 0.08);
   --radius: 12px;
   --gap: 20px;
-  --transition: 300ms cubic-bezier(.2,.9,.3,1);
+  --transition: 300ms cubic-bezier(.2, .9, .3, 1);
 }
 
 /* LIGHT MODE (default) */
@@ -29,116 +33,897 @@
 
 /* DARK MODE */
 /* A soft dark palette that is not pure black for a modern feel. */
-html[data-theme="dark"]{
-  --bg: #0f1724; /* background */
-  --surface: #0b1220; /* cards */
-  --muted: #9aa6b2; /* muted text */
-  --text: #e6eef8; /* main text */
-  --shadow: 0 6px 18px rgba(2,8,23,0.6);
+html[data-theme="dark"] {
+  --bg: #0f1724;
+  /* background */
+  --surface: #0b1220;
+  /* cards */
+  --muted: #9aa6b2;
+  /* muted text */
+  --text: #e6eef8;
+  /* main text */
+  --shadow: 0 6px 18px rgba(2, 8, 23, 0.6);
 }
 
 /* BASE RESET */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-  transition:background var(--transition), color var(--transition);
+* {
+  box-sizing: border-box
 }
 
-.container{max-width:1100px;margin:0 auto;padding:24px}
+html {
+  background: var(--bg)
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  transition: background var(--transition), color var(--transition);
+}
+
+main {
+  background: var(--bg)
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px
+}
 
 /* NAVBAR */
-.navbar{position:sticky;top:0;backdrop-filter:blur(6px);z-index:40;border-bottom:1px solid rgba(0,0,0,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));transition:background var(--transition)}
-html[data-theme="dark"] .navbar{background:linear-gradient(180deg,rgba(6,10,18,0.7),rgba(6,10,18,0.6));border-bottom:1px solid rgba(255,255,255,0.04)}
-.nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between}
-.brand .logo{font-weight:700;color:var(--text);text-decoration:none}
-.nav-links{display:flex;gap:16px;align-items:center}
-.nav-link{color:var(--text);text-decoration:none;padding:8px;border-radius:8px;transition:background var(--transition)}
-.nav-link:hover{background:rgba(11,99,215,0.06)}
-.nav-actions{display:flex;gap:8px;align-items:center}
-.icon-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 10px;border-radius:8px;cursor:pointer}
-html[data-theme="dark"] .icon-btn{border:1px solid rgba(255,255,255,0.06)}
-.hamburger{display:none}
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+  z-index: 40;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+  transition: background var(--transition)
+}
+
+html[data-theme="dark"] .navbar {
+  background: linear-gradient(180deg, rgba(6, 10, 18, 0.7), rgba(6, 10, 18, 0.6));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.nav-inner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between
+}
+
+.brand .logo {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background var(--transition)
+}
+
+.nav-link:hover {
+  background: rgba(11, 99, 215, 0.06)
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer
+}
+
+html[data-theme="dark"] .icon-btn {
+  border: 1px solid rgba(255, 255, 255, 0.06)
+}
+
+.hamburger {
+  display: none
+}
 
 /* HERO */
-.hero{padding:70px 0 80px}
-.hero-inner{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
-.hero-copy h1{font-size:clamp(1.6rem,4vw,2.6rem);margin:0 0 12px}
-.lead{color:var(--muted);margin:0 0 18px}
-.hero-ctas{display:flex;gap:12px}
-.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;border:1px solid transparent;transition:transform var(--transition),box-shadow var(--transition)}
-.btn.primary{background:var(--color-primary);color:white;box-shadow:var(--shadow)}
-.btn.ghost{background:transparent;color:var(--text);border-color:rgba(0,0,0,0.06)}
-.btn:hover{transform:translateY(-3px)}
-.hero-visual{display:flex;justify-content:center}
-.hero-card{padding:18px;background:var(--surface);box-shadow:var(--shadow);border-radius:var(--radius);max-width:360px}
+.hero {
+  padding: 70px 0 80px
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center
+}
+
+.hero-copy h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  margin: 0 0 12px
+}
+
+.lead {
+  color: var(--muted);
+  margin: 0 0 18px
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform var(--transition), box-shadow var(--transition)
+}
+
+.btn.primary {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow)
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(0, 0, 0, 0.06)
+}
+
+.btn:hover {
+  transform: translateY(-3px)
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center
+}
+
+.hero-card {
+  padding: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  max-width: 360px
+}
 
 /* SECTIONS */
-.section{padding:60px 0}
-.section-title{font-size:1.4rem;margin:0 0 18px}
-.grid-3{display:grid;grid-template-columns:1fr;gap:18px}
-.grid-2{display:grid;grid-template-columns:1fr;gap:18px}
-.grid-4{display:grid;grid-template-columns:1fr;gap:18px}
-.cards{display:grid;gap:18px}
-.card{padding:18px;background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform var(--transition),box-shadow var(--transition)}
-.card:hover{transform:translateY(-6px)}
-.card-icon{font-size:28px}
-.feature{text-align:center;padding:28px}
-.feature-icon{font-size:28px;margin-bottom:8px}
+.section {
+  padding: 60px 0
+}
 
-.map iframe{width:100%;height:320px;border:0;border-radius:8px}
+.section-title {
+  font-size: 1.4rem;
+  margin: 0 0 18px
+}
 
-.contact-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px
+}
 
-.site-footer{padding:28px 0;background:transparent;border-top:1px solid rgba(0,0,0,0.04);text-align:center}
-html[data-theme="dark"] .site-footer{border-top:1px solid rgba(255,255,255,0.04)}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px
+}
+
+.cards {
+  display: grid;
+  gap: 18px
+}
+
+.card {
+  padding: 18px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition)
+}
+
+.card:hover {
+  transform: translateY(-6px)
+}
+
+.card-icon {
+  font-size: 28px
+}
+
+.feature {
+  text-align: center;
+  padding: 28px
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 8px
+}
+
+.map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 8px
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media(min-width: 700px) {
+  .map-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px
+}
+
+.site-footer {
+  padding: 28px 0;
+  background: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  text-align: center
+}
+
+html[data-theme="dark"] .site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.04)
+}
 
 /* Floating WhatsApp */
-.whatsapp-fab{position:fixed;right:20px;bottom:20px;background:var(--color-primary);color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(11,99,215,0.18);text-decoration:none;transition:transform var(--transition)}
-.whatsapp-fab:hover{transform:translateY(-6px)}
-.whatsapp-fab{animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.whatsapp-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--color-primary);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(11, 99, 215, 0.18);
+  text-decoration: none;
+  transition: transform var(--transition)
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-6px)
+}
+
+.whatsapp-fab {
+  animation: float 4s ease-in-out infinite
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-6px)
+  }
+}
 
 /* Fade-in animation for scroll */
-.fade-in{opacity:0;transform:translateY(18px);transition:opacity 600ms ease,transform 600ms ease}
-.fade-in.visible{opacity:1;transform:none}
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none
+}
 
 /* ==========================================
    SERVICE CARDS / ACCORDION
    - Styles for the expandable service cards
    - Edit spacing / radii here if needed.
    ========================================== */
-.accordion{display:flex;flex-direction:column;gap:12px}
-.accordion-item .accordion-header{display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:0;padding:14px;cursor:pointer;text-align:left}
-.accordion-header .title{display:flex;flex-direction:column;align-items:flex-start}
-.accordion-header .subtitle{font-size:0.9rem;color:var(--muted)}
-.accordion-header .chev{font-size:1.1rem;opacity:0.8}
-.accordion-panel{max-height:0;overflow:hidden;transition:max-height 320ms ease;padding:0 14px}
-.accordion-item.open .accordion-panel{padding:12px 14px;max-height:320px}
-.muted-note{color:var(--muted);margin-top:12px}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.accordion-item .accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 14px;
+  cursor: pointer;
+  text-align: left
+}
+
+.accordion-header .title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+
+.accordion-header .subtitle {
+  font-size: 0.9rem;
+  color: var(--muted)
+}
+
+.accordion-header .chev {
+  font-size: 1.1rem;
+  opacity: 0.8
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease;
+  padding: 0 14px
+}
+
+.accordion-item.open .accordion-panel {
+  padding: 12px 14px;
+  max-height: 320px
+}
+
+.muted-note {
+  color: var(--muted);
+  margin-top: 12px
+}
 
 /* ACCORDION BUTTON FOCUS */
-.accordion-header:focus{outline:2px solid rgba(11,99,215,0.12);outline-offset:2px;border-radius:8px}
+.accordion-header:focus {
+  outline: 2px solid rgba(11, 99, 215, 0.12);
+  outline-offset: 2px;
+  border-radius: 8px
+}
 
 /* Responsive layouts */
-@media(min-width:700px){
-  .grid-3{grid-template-columns:repeat(3,1fr)}
-  .grid-2{grid-template-columns:repeat(2,1fr)}
-  .grid-4{grid-template-columns:repeat(4,1fr)}
-  .hero-inner{grid-template-columns:1fr 420px}
-  .nav-links{display:flex}
-  .hamburger{display:none}
+@media(min-width:700px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr)
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr)
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr 420px
+  }
+
+  .nav-links {
+    display: flex
+  }
+
+  .hamburger {
+    display: none
+  }
 }
 
-@media(max-width:699px){
-  .nav-links{display:none}
-  .hamburger{display:inline-block}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;right:16px;top:64px;background:var(--surface);padding:12px;border-radius:8px;box-shadow:var(--shadow)}
+@media(max-width:699px) {
+  .nav-links {
+    display: none
+  }
+
+  .hamburger {
+    display: inline-block
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 16px;
+    top: 64px;
+    background: var(--surface);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: var(--shadow)
+  }
 }
 
+/* ==================================================
+  Additional background & illustration styles
+  - Uses ::before overlays for images and ::after for color overlays
+  - Commented BACKGROUND IMAGE blocks below for easy replacement
+  ================================================== */
+
+/* HERO BACKGROUND: replace URL below to change hero photo -------------------------------------------------
+  BACKGROUND IMAGE:
+  Replace the URL in `background-image` to change the hero image.
+  Choose a travel / ticket booking image matching the blue/red/white theme.
+*/
+.hero {
+  position: relative;
+  padding: 90px 0 110px;
+  color: #fff;
+  overflow: hidden
+}
+
+.hero::before {
+  /* subtle travel photo (Unsplash style) - replace URL below */
+  /* BACKGROUND IMAGE:
+     Replace this URL with a different hero image. Keep the image subtle
+     and matching the blue/red/white color theme. Use Unsplash-style params
+     like `?auto=format&fit=crop&w=...&q=...` for consistent results.
+  */
+  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  transform: scale(1.02);
+  transition: transform 8000ms linear
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  /* blue gradient overlay for text readability */
+  background: linear-gradient(180deg, rgba(11, 99, 215, 0.66), rgba(11, 99, 215, 0.66));
+  mix-blend-mode: normal
+}
+
+.hero .hero-copy,
+.hero .hero-visual {
+  position: relative;
+  z-index: 2
+}
+
+/* HERO CONTACT CARDS (in-hero contact info) -------------------------------------------------------------
+   - Clickable phone numbers (tel:) and email (mailto:)
+   - To edit contact details, update the href/text in `index.html` inside
+     the `.hero-contacts` block. Keep `tel:+91xxxxxxxxxx` format for phones.
+*/
+.hero-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px
+}
+
+.contact-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.267);
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  transition: transform var(--transition), box-shadow var(--transition)
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow)
+}
+
+.contact-card .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 18px
+}
+
+.contact-card .contact-text {
+  font-weight: 600
+}
+
+html[data-theme="dark"] .contact-card {
+  background: rgba(255, 255, 255, 0.208);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text)
+}
+
+/* ==================================================
+  Boxed UI: make major sections, nav, footer look like cards
+  - Rounded corners and subtle shadows for a consistent boxed layout
+  - Respect dark mode by using --surface and adjusting overlays
+  - Do not change structural HTML; selectors only affect presentation
+  ================================================== */
+
+/* Navbar inner container: keep flat, no rounding */
+.nav-inner {
+  background: transparent;
+  padding: 12px;
+  border-radius: 0
+}
+
+html[data-theme="dark"] .nav-inner {
+  background: transparent
+}
+
+/* Sections: keep the section container visually light (transparent)
+  so individual `.card` elements can be presented as boxed items.
+  This makes service cards and feature boxes stand out as separate cards.
+*/
+.section .container {
+  background: transparent;
+  border-radius: 0;
+  padding: 18px 0
+}
+
+.section {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background images for major sections */
+#services::before,
+.why-choose::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  /* very subtle */
+  transition: opacity 600ms ease;
+}
+
+#services::before {
+  background-image: url('https://images.unsplash.com/photo-1454165833767-1316b321d021?auto=format&fit=crop&w=1600&q=80');
+  /* office desk theme */
+}
+
+.why-choose::before {
+  background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80');
+  /* trust/travel theme */
+}
+
+/* Overlay to ensure dark mode matches and text is readable */
+#services::after,
+.why-choose::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+  opacity: 0.85;
+  /* Blend image with theme background */
+}
+
+html[data-theme="dark"] .section .container {
+  background: transparent
+}
+
+html[data-theme="dark"] .section {
+  background: var(--bg)
+}
+
+/* Make map and other large cards sit comfortably inside rounded boxes */
+.map.card,
+.contact-grid .card,
+.hero-card {
+  border-radius: 14px
+}
+
+/* Service & feature cards: each card should appear as a distinct boxed item */
+.cards .card,
+.grid-4 .feature.card {
+  background: var(--surface);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.04)
+}
+
+html[data-theme="dark"] .cards .card,
+html[data-theme="dark"] .grid-4 .feature.card {
+  border: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+/* Card icon box for service cards */
+.card .card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(11, 99, 215, 0.08), rgba(11, 99, 215, 0.03));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 12px
+}
+
+/* Feature icon styling (centered circle) */
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--color-primary), rgba(11, 99, 215, 0.8));
+  color: white;
+  font-size: 20px;
+  margin: 0 auto 12px
+}
+
+/* Font Awesome Icon sizing */
+.card-icon i,
+.feature-icon i {
+  font-size: 24px;
+}
+
+.card-icon i,
+.feature-icon i,
+.chev i {
+  color: white;
+  /* Ensure visibility on primary backgrounds */
+}
+
+/* Ensure grid spacing looks balanced */
+.cards {
+  grid-auto-rows: 1fr
+}
+
+/* Footer boxed */
+.site-footer .container {
+  background: transparent;
+  border-radius: 12px;
+  padding: 12px
+}
+
+/* Keep existing .card rules but ensure consistent radii */
+.card {
+  border-radius: 14px
+}
+
+/* Slight spacing between boxed sections */
+.section {
+  margin-bottom: 20px
+}
+
+@media(min-width:700px) {
+  .hero-contacts {
+    flex-direction: column;
+    align-items: flex-start
+  }
+}
+
+/* Make inline SVG icons use currentColor and size cleanly */
+.contact-card .icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor
+}
+
+.contact-card .icon {
+  color: var(--color-primary)
+}
+
+/* Fix icon visibility in dark mode for navbar toggles */
+#theme-toggle svg,
+#theme-toggle-2 svg {
+  color: var(--text)
+}
+
+html[data-theme="dark"] #theme-toggle svg,
+html[data-theme="dark"] #theme-toggle-2 svg {
+  color: #fff
+}
+
+#lang-toggle,
+#lang-toggle-2 {
+  color: var(--text)
+}
+
+html[data-theme="dark"] #lang-toggle,
+html[data-theme="dark"] #lang-toggle-2 {
+  color: #fff
+}
+
+/* Optional slight parallax effect on larger screens (background scales slowly) */
+@media(min-width:900px) {
+  .hero::before {
+    transform: scale(1.06)
+  }
+}
+
+/* SERVICES PREVIEW: subtle illustrations for cards ---------------------------------------------------------
+  Use small illustrative images as top accent or faded watermark.
+  Replace URLs below for travel/digital illustrations.
+*/
+.card.card-travel {
+  position: relative;
+  overflow: visible
+}
+
+.card.card-travel::before {
+  content: "";
+  display: block;
+  height: 64px;
+  margin: -18px -18px 12px -18px;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  background-image: url('https://images.unsplash.com/photo-1501889088091-6e2d3a1b1f3d?auto=format&fit=crop&w=800&q=60');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 120px;
+  opacity: 0.12;
+  pointer-events: none
+}
+
+.card.card-online {
+  position: relative
+}
+
+.card.card-online::before {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  width: 220px;
+  height: 220px;
+  background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.06;
+  pointer-events: none
+}
+
+/* WHY CHOOSE US: keep background clean, only small icon-style visuals ------------------------------------------------- */
+.why-choose .feature-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border-radius: 10px
+}
+
+/* LOCATIONS BACKGROUND: soft office/map related image ---------------------------------------------------------
+  BACKGROUND IMAGE:
+  Replace the URL below to change the locations background. Keep opacity low.
+*/
+.locations {
+  position: relative;
+  padding: 60px 0 80px;
+  overflow: hidden
+}
+
+.locations::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(6%) blur(0.6px);
+  opacity: 0.18
+}
+
+.locations-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.6)
+}
+
+html[data-theme="dark"] .locations-overlay {
+  background: rgba(2, 6, 12, 0.6)
+}
+
+/* SERVICES PAGE: slim hero/banner for services.html ---------------------------------------------------------
+  BACKGROUND IMAGE:
+  Replace the URL below to change the services page banner (documents/forms themed)
+*/
+.hero-small {
+  position: relative;
+  padding: 36px 0;
+  color: var(--text);
+  overflow: hidden
+}
+
+.hero-small::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://images.unsplash.com/photo-1532634726-8b9fb99825b7?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  filter: grayscale(10%)
+}
+
+.hero-small::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))
+}
+
+html[data-theme="dark"] .hero-small::after {
+  background: linear-gradient(180deg, rgba(2, 6, 12, 0.6), rgba(2, 6, 12, 0.6));
+}
+
+/* IMAGE HANDLING: make replacements easy
+  - Change only the `background-image:url('...')` values above to swap images.
+  - Use Unsplash/formatted URLs with `auto=format&fit=crop&w=...&q=...` for consistent results.
+*/
+
+/* Small adjustments to maintain readability on hero text */
+.hero h1,
+.hero p {
+  color: #fff
+}
+
+.hero .lead {
+  color: rgba(255, 255, 255, 0.9)
+}
+
+/* Smooth transitions for background changes */
+.hero::before,
+.locations::before,
+.hero-small::before {
+  transition: opacity 600ms ease, transform 6000ms linear
+}

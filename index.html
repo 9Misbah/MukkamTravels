@@ -1,21 +1,24 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>XYZ Travel & Online Services — Mukkam</title>
-  <meta name="description" content="Mukkam travel services, ticket booking, online services Kerala - bus, train, flight, passport, visa, PAN, Aadhaar">
+  <title>Mukkam Travels Travel & Online Services — Mukkam</title>
+  <meta name="description"
+    content="Mukkam travel services, ticket booking, online services Kerala - bus, train, flight, passport, visa, PAN, Aadhaar">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script defer src="script.js"></script>
 </head>
+
 <body>
 
   <!-- NAVBAR: logo, links, language toggle, theme toggle -->
   <header class="navbar" id="site-navbar">
     <div class="container nav-inner">
       <div class="brand">
-        <a href="index.html" class="logo">XYZ Travel & Online Services</a>
+        <a href="index.html" class="logo">Mukkam Travels and Online Services</a>
       </div>
       <nav class="nav-links" id="nav-links">
         <a href="index.html" class="nav-link" data-en="Home" data-ml="ഹോം"></a>
@@ -25,19 +28,33 @@
 
       <div class="nav-actions">
         <button id="lang-toggle" class="icon-btn" title="Language">EN</button>
-        <button id="theme-toggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌙</button>
-        <button class="hamburger" id="menu-toggle" aria-expanded="false">☰</button>
+        <button id="theme-toggle" class="icon-btn" aria-pressed="false" title="Toggle theme">
+          <!-- Initial theme icon (will be overwritten by script.js on load) -->
+          <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+        <button class="hamburger" id="menu-toggle" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
   </header>
 
   <!-- HERO SECTION -->
   <main>
+    <!-- BACKGROUND IMAGE:
+         Hero image is applied via CSS `style.css` to the `.hero` selector.
+         Replace the URL in `style.css` under the /* HERO BACKGROUND */ block.
+         Use a high-quality, subtle travel or booking-related photo that matches
+         the blue/red/white color theme. Keep opacity 0.6-0.7 via overlay for
+         text readability.
+    -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1 data-en="Your One-Stop Solution for Travel & Online Services" data-ml="യാത്രയും ഓൺലൈൻ സേവനങ്ങളുമായുള്ള നിങ്ങളുടെ ഒറ്റ നിർത്തൽ കേന്ദ്രം"></h1>
-          <p class="lead" data-en="Trusted, fast, and local assistance for tickets, documents, and travel planning." data-ml="ടിക്കറ്റുകൾ, രേഖകൾ, യാത്രാ പദ്ധതികള്‍ക്കുള്ള വിശ്വസനീയവും വേഗവുമായ പ്രാദേശിക സഹായം."></p>
+          <h1 data-en="Your One-Stop Solution for Travel & Online Services"
+            data-ml="യാത്രയും ഓൺലൈൻ സേവനങ്ങളുമായുള്ള നിങ്ങളുടെ ഒറ്റ നിർത്തൽ കേന്ദ്രം"></h1>
+          <p class="lead" data-en="Trusted, fast, and local assistance for tickets, documents, and travel planning."
+            data-ml="ടിക്കറ്റുകൾ, രേഖകൾ, യാത്രാ പദ്ധതികള്‍ക്കുള്ള വിശ്വസനീയവും വേഗവുമായ പ്രാദേശിക സഹായം."></p>
           <div class="hero-ctas">
             <a href="#contact" class="btn primary" data-en="Get Started" data-ml="ആരംഭിക്കുക"></a>
             <a href="services.html" class="btn ghost" data-en="View Services" data-ml="സേവനങ്ങൾ കാണുക"></a>
@@ -46,8 +63,39 @@
         <div class="hero-visual">
           <div class="card hero-card fade-in">
             <h3 data-en="Easy Bookings" data-ml="സുഖകരമായ ബുക്കിങ്ങുകൾ"></h3>
-            <p data-en="Bus, train and flight tickets booked with local support." data-ml="ബസ്, ട്രെയിൻ, വിമാന ടിക്കറ്റുകൾ പ്രാദേശിക സഹായത്തോടെ."></p>
+            <p data-en="Bus, train and flight tickets booked with local support."
+              data-ml="ബസ്, ട്രെയിൻ, വിമാന ടിക്കറ്റുകൾ പ്രാദേശിക സഹായത്തോടെ."></p>
           </div>
+        </div>
+        <!-- HERO CONTACTS: update phone numbers and email below
+             To edit contact details: replace the `href` and visible text
+             inside these links. Keep phone links in `tel:+91...` format
+             and email links in `mailto:...` format for proper clicking.
+        -->
+        <div class="hero-contacts">
+          <a class="contact-card" href="tel:+919400529455" aria-label="Call 9400529455">
+            <span class="icon" aria-hidden="true">
+              <!-- Phone icon (SVG) -->
+              <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-hidden="true">
+                <path fill="currentColor"
+                  d="M6.62 10.79a15.464 15.464 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27c1.05.26 2.2.4 3.38.4a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.18.14 2.33.4 3.38a1 1 0 01-.27.95l-2.01 2.46z" />
+              </svg>
+            </span>
+            <span class="contact-text">9400529455</span>
+          </a>
+
+          <a class="contact-card" href="mailto:mukkamtravels@gmail.com" aria-label="Email mukkamtravels@gmail.com">
+            <span class="icon" aria-hidden="true">
+              <!-- Envelope icon (SVG) -->
+              <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-hidden="true">
+                <path fill="currentColor"
+                  d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+            </span>
+            <span class="contact-text">mukkamtravels@gmail.com</span>
+          </a>
         </div>
       </div>
     </section>
@@ -58,21 +106,24 @@
         <h2 class="section-title" data-en="Our Services" data-ml="ഞങ്ങളുടെ സേവനങ്ങൾ"></h2>
         <div class="cards grid-3">
           <article class="card fade-in">
-            <div class="card-icon">🚌</div>
+            <div class="card-icon"><i class="fa-solid fa-bus"></i></div>
             <h3 data-en="Travel Services" data-ml="യാത്രാ സേവനങ്ങൾ"></h3>
-            <p data-en="Bus, train, flights & tour packages with easy booking." data-ml="ബസ്, ട്രെയിൻ, വിമാനങ്ങള്‍, ടൂർ പാക്കേജുകൾ - എളുപ്പം ബുക്ക് ചെയ്യാം."></p>
+            <p data-en="Bus, train, flights & tour packages with easy booking."
+              data-ml="ബസ്, ട്രെയിൻ, വിമാനങ്ങള്‍, ടൂർ പാക്കേജുകൾ - എളുപ്പം ബുക്ക് ചെയ്യാം."></p>
           </article>
 
           <article class="card fade-in">
-            <div class="card-icon">🖥️</div>
+            <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
             <h3 data-en="Online Services" data-ml="ഓൺലൈൻ സേവനങ്ങൾ"></h3>
-            <p data-en="Passport, visa help, PAN, Aadhaar and government forms." data-ml="പാസ്പോർട്ട്, വിസാ സഹായം, PAN, ആധാർ, സർക്കാർ ഫോം സഹായങ്ങൾ."></p>
+            <p data-en="Passport, visa help, PAN, Aadhaar and government forms."
+              data-ml="പാസ്പോർട്ട്, വിസാ സഹായം, PAN, ആധാർ, സർക്കാർ ഫോം സഹായങ്ങൾ."></p>
           </article>
 
           <article class="card fade-in">
-            <div class="card-icon">🧾</div>
+            <div class="card-icon"><i class="fa-solid fa-file-invoice"></i></div>
             <h3 data-en="Government Services" data-ml="സർക്കാർ സേവനങ്ങൾ"></h3>
-            <p data-en="Digital Kerala & central services guidance for residents." data-ml="ഡിജിറ്റൽ കേരളം & കേന്ദ്ര സേവനങ്ങൾക്കുള്ള മാർഗനിർദ്ദേശം."></p>
+            <p data-en="Digital Kerala & central services guidance for residents."
+              data-ml="ഡിജിറ്റൽ കേരളം & കേന്ദ്ര സേവനങ്ങൾക്കുള്ള മാർഗനിർദ്ദേശം."></p>
           </article>
         </div>
       </div>
@@ -84,24 +135,27 @@
         <h2 class="section-title" data-en="Why Choose Us" data-ml="എന്തുകൊണ്ട് ഞങ്ങളെ തിരഞ്ഞെടുക്കണം"></h2>
         <div class="grid-4">
           <div class="feature card fade-in">
-            <div class="feature-icon">⚡</div>
+            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
             <h4 data-en="Fast Service" data-ml="വേഗതയുള്ള സേവനം"></h4>
-            <p data-en="Quick processing for tickets and documents." data-ml="ടിക്കറ്റുകളും രേഖകളും വേഗത്തിൽ നൽകുന്നു."></p>
+            <p data-en="Quick processing for tickets and documents." data-ml="ടിക്കറ്റുകളും രേഖകളും വേഗത്തിൽ നൽകുന്നു.">
+            </p>
           </div>
           <div class="feature card fade-in">
-            <div class="feature-icon">🤝</div>
+            <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
             <h4 data-en="Trusted & Reliable" data-ml="വിശ്വസനീയവും വിശ്വസ്തവുമാണ്"></h4>
-            <p data-en="Local team with years of experience in Mukkam." data-ml="മുക്കാമിലെ വർഷങ്ങളേയുള്ള പ്രാദേശിക പരിചയം."></p>
+            <p data-en="Local team with years of experience in Mukkam."
+              data-ml="മുക്കാമിലെ വർഷങ്ങളേയുള്ള പ്രാദേശിക പരിചയം."></p>
           </div>
           <div class="feature card fade-in">
-            <div class="feature-icon">💰</div>
+            <div class="feature-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
             <h4 data-en="Affordable Pricing" data-ml="മിതമായ നിരക്കുകൾ"></h4>
             <p data-en="Transparent fees and no hidden charges." data-ml="തുറന്ന ഫീസ്; മറഞ്ഞ ചാർജുകൾ ഇല്ല."></p>
           </div>
           <div class="feature card fade-in">
-            <div class="feature-icon">📍</div>
+            <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
             <h4 data-en="Local Support" data-ml="പ്രാദേശിക സഹായം"></h4>
-            <p data-en="Two convenient locations in Mukkam for in-person help." data-ml="വ്യക്തിഗത സഹായത്തിനായി മുക്കാമിൽ രണ്ട് സൗകര്യപ്രദ സ്ഥലങ്ങൾ."></p>
+            <p data-en="Two convenient locations in Mukkam for in-person help."
+              data-ml="വ്യക്തിഗത സഹായത്തിനായി മുക്കാമിൽ രണ്ട് സൗകര്യപ്രദ സ്ഥലങ്ങൾ."></p>
           </div>
         </div>
       </div>
@@ -114,18 +168,33 @@
         <div class="grid-2">
           <div class="card fade-in">
             <h3>Mukkam Orphanage Road, Mukkam</h3>
-            <p data-en="Near landmark: Orphanage Road, easy parking available." data-ml="ലാൻഡ്മാർക്: ഓർഫനേജ് റോഡ്, പാർക്കിംഗ് ലഭ്യമാണ്."></p>
+            <p data-en="Near landmark: Orphanage Road, easy parking available."
+              data-ml="ലാൻഡ്മാർക്: ഓർഫനേജ് റോഡ്, പാർക്കിംഗ് ലഭ്യമാണ്."></p>
           </div>
           <div class="card fade-in">
             <h3>Near Abhilash Theater, Mukkam</h3>
-            <p data-en="Opposite Abhilash Theater; reachable by local transport." data-ml="അഭിലാഷ് തിയേറ്ററിന് മുകളിൽ; പ്രാദേശിക ഗതാഗതം ലഭ്യമാണ്."></p>
+            <p data-en="Opposite Abhilash Theater; reachable by local transport."
+              data-ml="അഭിലാഷ് തിയേറ്ററിന് മുകളിൽ; പ്രാദേശിക ഗതാഗതം ലഭ്യമാണ്."></p>
           </div>
         </div>
 
-        <div class="map card fade-in">
-          <!-- Google Maps iframe placeholder (replace src with real embed when available) -->
-          <iframe title="Mukkam locations map" src="https://www.google.com/maps/embed?pb=!1m18" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-grid">
+          <div class="map card fade-in">
+            <!-- Location 1 Map -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.186847846549!2d76.01438917506947!3d11.321016888862214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6466f81e3381b%3A0xe53046bc1e4d5885!2sMukkam%20Travels!5e0!3m2!1sen!2sin!4v1707584100000!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="map card fade-in">
+            <!-- Location 2 Map -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.188!2d76.01!3d11.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDE5JzEyLjEiTiA3NsKwMDAnMzYuMCJF!5e0!3m2!1sen!2sin!4v1707584200000!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -150,19 +219,17 @@
   </main>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/919876543210" class="whatsapp-fab" aria-label="WhatsApp" target="_blank" rel="noopener">
-    <span aria-hidden="true">💬</span>
+  <a href="https://wa.me/919400529455" class="whatsapp-fab" aria-label="WhatsApp" target="_blank" rel="noopener">
+    <span aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
   </a>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> XYZ Travel & Online Services — Mukkam, Kerala</p>
+      <p>© <span id="year"></span> Mukkam Travels and Online Services — Mukkam, Kerala</p>
     </div>
   </footer>
 
 </body>
+
 </html>
-=======
-AllahuAkbar
->>>>>>> 543a9afe6076bf3d5cbefdc561d70e2e85ea3b71

@@ -1,92 +1,71 @@
 <!doctype html>
-<!--
-  services.html — Our Services & Requirements
-
-  HOW TO ADD A NEW SERVICE (quick guide):
-  1. Copy the sample service card markup (the accordion item below).
-  2. Replace the English text in the data-en attributes.
-  3. Replace the Malayalam text in the data-ml attributes.
-  4. Update the document list inside the <ul>.
-  5. Place the new card where indicated by <!-- ADD NEW SERVICE CARD BELOW -->
-  6. Save the file.
-
-  Note: The language system replaces any element with `data-en`/`data-ml` attributes.
-        The accordion uses buttons with aria attributes for accessibility.
--->
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Our Services & Requirements — XYZ Travel & Online Services</title>
-  <meta name="description" content="Service requirements for Mukkam travel & online services: documents required for passport, PAN, Aadhaar, income certificates and more.">
+  <title>Our Services & Requirements — Mukkam Travels and Online Services</title>
+  <meta name="description"
+    content="Service requirements for Mukkam travel & online services: documents required for passport, PAN, Aadhaar, income certificates and more.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script defer src="script.js"></script>
 </head>
+
 <body>
 
-  <!-- HEADER / NAVBAR -->
-  <header class="navbar">
+  <!-- NAVBAR -->
+  <header class="navbar" id="site-navbar">
     <div class="container nav-inner">
       <div class="brand">
-        <a href="index.html" class="logo">XYZ Travel & Online Services</a>
+        <a href="index.html" class="logo">Mukkam Travels and Online Services</a>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" id="nav-links">
         <a href="index.html" class="nav-link" data-en="Home" data-ml="ഹോം"></a>
         <a href="services.html" class="nav-link" data-en="Services" data-ml="സേവനങ്ങൾ"></a>
-        <a href="#contact" class="nav-link" data-en="Contact" data-ml="ബന്ധപ്പെടുക"></a>
+        <a href="index.html#contact" class="nav-link" data-en="Contact" data-ml="ബന്ധപ്പെടുക"></a>
       </nav>
+
       <div class="nav-actions">
-        <button id="lang-toggle-2" class="icon-btn">EN</button>
-        <button id="theme-toggle-2" class="icon-btn">🌙</button>
+        <button id="lang-toggle-2" class="icon-btn" title="Language">EN</button>
+        <button id="theme-toggle-2" class="icon-btn" aria-pressed="false" title="Toggle theme">
+          <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+        <button class="hamburger" id="menu-toggle" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN: Services & Requirements -->
   <main>
-
-    <!-- HERO / PAGE TITLE -->
+    <!-- HERO SECTION -->
     <section class="section hero-small">
       <div class="container">
         <h1 data-en="Our Services & Requirements" data-ml="ഞങ്ങളുടെ സേവനങ്ങളും ആവശ്യകതകളും"></h1>
-        <p class="lead" data-en="Clear service descriptions and the documents needed for each service. Add new services easily using the template below." data-ml="പ്രതേക സേവന വിവരങ്ങളും ഓരോ സേവനത്തിനും ആവശ്യമായ രേഖകളും. താഴെയുള്ള ടെംപ്ലേറ്റ് ഉപയോഗിച്ച് പുതിയ സേവനങ്ങൾ എളുപ്പത്തിൽ ചേർക്കാവുന്നതാണ്."></p>
+        <p class="lead"
+          data-en="Comprehensive assistance for all your travel and online documentation needs. Find required documents for each service below."
+          data-ml="നിങ്ങളുടെ എല്ലാ യാത്രയ്ക്കും ഓൺലൈൻ ഡോക്യുമെന്റേഷൻ ആവശ്യങ്ങൾക്കും സമഗ്രമായ സഹായം. ഓരോ സേവനത്തിനും ആവശ്യമായ രേഖകൾ താഴെ കണ്ടെത്തുക.">
+        </p>
       </div>
     </section>
 
-    <!-- INSTRUCTIONS FOR EDITORS: SERVICE TEMPLATE INSTRUCTIONS -->
+    <!-- GOVERNMENT & ONLINE SERVICES SECTION -->
     <section class="section">
       <div class="container">
-        <div class="card">
-          <h2 data-en="How to add a new service" data-ml="ഒരു പുതിയ സേവനം എങ്ങനെ ചേർക്കാം"></h2>
-          <ol>
-            <li data-en="Copy the sample service card below." data-ml="താഴെയുള്ള സാമ്പിൾ സർവീസ് കാര്‍ഡ് കോപ്പി ചെയ്യുക."></li>
-            <li data-en="Change the service title and subtitle." data-ml="സേവനത്തിന്റെ ശീർഷകം, സബ്ടൈറ്റിൽ മാറ്റുക."></li>
-            <li data-en="Edit the document list to match requirements." data-ml="ആവശ്യങ്ങളനുസരിച്ച് രേഖകളുടെ പട്ടിക മാറ്റുക."></li>
-            <li data-en="Update data-en and data-ml attributes for bilingual content." data-ml="ഇംഗ്ലീഷും മലയാളവും വേണ്ട হলে data-en, data-ml ഉള്ളടക്കങ്ങൾ അപ്‌ഡേറ്റ് ചെയ്യുക."></li>
-          </ol>
-        </div>
-      </div>
-    </section>
+        <h2 class="section-title" data-en="Documentation & Government Services" data-ml="രേഖകളും സർക്കാർ സേവനങ്ങളും">
+        </h2>
+        <div class="accordion" id="gov-services">
 
-    <!-- SERVICE ACCORDION: modern expandable cards -->
-    <section class="section">
-      <div class="container">
-        <h2 data-en="Services & Requirements" data-ml="സേവനങ്ങളും ആവശ്യകതകളും"></h2>
-
-        <!-- Accordion container: add new .accordion-item below -->
-        <div class="accordion" id="services-accordion">
-
-          <!-- Sample Service Card: Income Certificate -->
           <article class="accordion-item card">
             <button class="accordion-header" aria-expanded="false">
               <div class="title">
                 <strong data-en="Income Certificate" data-ml="വരുമാന സർട്ടിഫിക്കറ്റ്"></strong>
-                <span class="subtitle" data-en="Documents Required" data-ml="ആവശ്യമായ രേഖകൾ"></span>
+                <span class="subtitle" data-en="Standard application requirements" data-ml="അപേക്ഷാ ആവശ്യകതകൾ"></span>
               </div>
-              <span class="chev">▾</span>
+              <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="accordion-panel">
-              <p data-en="Please bring originals and photocopies for verification." data-ml="പരിശോധനയ്ക്കായി യഥാർത്ഥ രേഖകളും ഫോട്ടോകോപ്പികളും കൊണ്ടുവരുക."></p>
               <ul>
                 <li data-en="Aadhaar Card" data-ml="ആധാർ കാർഡ്"></li>
                 <li data-en="Passport size photo" data-ml="പാസ്പോർട്ട് സൈസ് ഫോട്ടോ"></li>
@@ -97,67 +76,117 @@
             </div>
           </article>
 
-          <!-- ADD NEW SERVICE CARD BELOW -->
-
-          <!-- Passport Services -->
           <article class="accordion-item card">
             <button class="accordion-header" aria-expanded="false">
               <div class="title">
                 <strong data-en="Passport Services" data-ml="പാസ്പോർട്ട് സേവനങ്ങൾ"></strong>
-                <span class="subtitle" data-en="Documents Required" data-ml="ആവശ്യമായ രേഖകൾ"></span>
+                <span class="subtitle" data-en="Fresh application & renewal"
+                  data-ml="പുതിയ അപേക്ഷയും പുതുക്കലും"></span>
               </div>
-              <span class="chev">▾</span>
+              <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="accordion-panel">
               <ul>
                 <li data-en="Aadhaar Card" data-ml="ആധാർ കാർഡ്"></li>
                 <li data-en="PAN Card" data-ml="PAN കാർഡ്"></li>
-                <li data-en="Photos" data-ml="ഫോട്ടോകൾ"></li>
-                <li data-en="Old Passport (if renewal)" data-ml="പഴയ പാസ്പോർട്ട് (പുനരുപയോഗം ആയാൽ)"></li>
+                <li data-en="SSLC / Birth Certificate" data-ml="SSLC / ജനന സർട്ടിഫിക്കറ്റ്"></li>
+                <li data-en="Old Passport (for renewal)" data-ml="പഴയ പാസ്പോർട്ട് (പുതുക്കലിന്)"></li>
               </ul>
             </div>
           </article>
 
-          <!-- PAN Card -->
           <article class="accordion-item card">
             <button class="accordion-header" aria-expanded="false">
               <div class="title">
                 <strong data-en="PAN Card" data-ml="PAN കാർഡ്"></strong>
-                <span class="subtitle" data-en="Documents Required" data-ml="ആവശ്യമായ രേഖകൾ"></span>
+                <span class="subtitle" data-en="New PAN & corrections" data-ml="പുതിയ PAN, തിരുത്തലുകൾ"></span>
               </div>
-              <span class="chev">▾</span>
+              <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="accordion-panel">
               <ul>
-                <li data-en="Aadhaar Card" data-ml="ആധാർ കാർഡ്"></li>
+                <li data-en="Aadhaar Card (must have correct DOB)" data-ml="ആധാർ കാർഡ്"></li>
                 <li data-en="Photo" data-ml="ഫോട്ടോ"></li>
-                <li data-en="Signature" data-ml="സൈൻ"></li>
+                <li data-en="Mobile number linked with Aadhaar" data-ml="ആധാറുമായി ബന്ധിപ്പിച്ച മൊബൈൽ നമ്പർ"></li>
               </ul>
             </div>
           </article>
 
-          <!-- Aadhaar Services -->
           <article class="accordion-item card">
             <button class="accordion-header" aria-expanded="false">
               <div class="title">
                 <strong data-en="Aadhaar Services" data-ml="ആധാർ സേവനങ്ങൾ"></strong>
-                <span class="subtitle" data-en="Documents Required" data-ml="ആവശ്യമായ രേഖകൾ"></span>
+                <span class="subtitle" data-en="Updates & related help" data-ml="അപ്ഡേറ്റുകളും അനുബന്ധ സഹായവും"></span>
               </div>
-              <span class="chev">▾</span>
+              <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="accordion-panel">
               <ul>
-                <li data-en="Existing Aadhaar / Enrollment ID" data-ml="സ്റ്റേറ്റ് ആധാർ / എൻറോൾമെന്റ് ഐഡി"></li>
-                <li data-en="Mobile number" data-ml="മൊബൈൽ നമ്പർ"></li>
+                <li data-en="Existing Aadhaar / Enrollment ID" data-ml="നിലവിലുള്ള ആധാർ / എൻറോൾമെന്റ് ഐഡി"></li>
+                <li data-en="Mobile with OTP access" data-ml="മൊബൈൽ ഒടിപി ഉള്ളത്"></li>
               </ul>
             </div>
           </article>
 
         </div>
+      </div>
+    </section>
 
-        <!-- Small notice under services -->
-        <p class="muted-note" data-en="Please contact us before visiting to confirm document requirements." data-ml="രേഖാ ആവശ്യകതകള്‍ സ്ഥിരീകരിക്കാന്‍ സന്ദര്‍ശിക്കുന്നതിന് മുൻപ് ദയവായി ഞങ്ങളെ ബന്ധപ്പെടുക."></p>
+    <!-- TRAVEL SERVICES SECTION -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" data-en="Travel & Booking Services" data-ml="യാത്ര, ബുക്കിംഗ് സേവനങ്ങൾ"></h2>
+        <div class="accordion" id="travel-services">
 
+          <article class="accordion-item card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="title">
+                <strong data-en="Ticket Bookings" data-ml="ടിക്കറ്റ് ബുക്കിങ്ങുകൾ"></strong>
+                <span class="subtitle" data-en="Bus, Train, and Flight" data-ml="ബസ്, ട്രെയിൻ, ഫ്ലൈറ്റ്"></span>
+              </div>
+              <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="accordion-panel">
+              <p data-en="Provide travel dates, destination, and passenger details."
+                data-ml="യാത്രാ തീയതികൾ, ലക്ഷ്യസ്ഥാനം, യാത്രക്കാരുടെ വിവരങ്ങൾ നൽകുക."></p>
+              <ul>
+                <li data-en="Valid ID Proof" data-ml="സാധുവായ തിരിച്ചറിയൽ രേഖ"></li>
+                <li data-en="Travel Dates" data-ml="യാത്രാ തീയതികൾ"></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="accordion-item card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="title">
+                <strong data-en="Tour Packages" data-ml="ടൂർ പാക്കേജുകൾ"></strong>
+                <span class="subtitle" data-en="Customized domestic & international tours"
+                  data-ml="ഇന്ത്യൻ, അന്താരാഷ്ട്ര ടൂർ പാക്കേജുകൾ"></span>
+              </div>
+              <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="accordion-panel">
+              <p data-en="Talk to us for expert planning and competitive rates."
+                data-ml="വിദഗ്ദ്ധമായ പ്ലാനിംഗിനും കുറഞ്ഞ നിരക്കിനും ഞങ്ങളുമായി സംസാരിക്കുക."></p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section">
+      <div class="container" style="text-align: center;">
+        <div class="card fade-in" style="padding: 40px;">
+          <h2 data-en="Need more help?" data-ml="കൂടുതൽ സഹായം വേണോ?"></h2>
+          <p class="lead" data-en="Contact us directly for specific requirements or complex cases."
+            data-ml="പ്രത്യേകമായോ സങ്കീർണ്ണമായോ ഉള്ള കാര്യങ്ങൾക്ക് നേരിട്ട് ബന്ധപ്പെടുക."></p>
+          <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html#contact" class="btn primary" data-en="Contact Us" data-ml="ബന്ധപ്പെടുക"></a>
+            <a href="https://wa.me/919400529455" class="btn ghost" data-en="WhatsApp Us" data-ml="വാട്സാപ്പ്"></a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -166,9 +195,10 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year-2"></span> XYZ Travel & Online Services — Mukkam, Kerala</p>
+      <p>© <span id="year-2"></span> Mukkam Travels and Online Services — Mukkam, Kerala</p>
     </div>
   </footer>
 
 </body>
+
 </html>
