@@ -98,21 +98,45 @@ html[data-theme="dark"] .navbar {
 
 .nav-inner {
   display: flex;
-  gap: 12px;
+  gap: 24px;
   align-items: center;
-  justify-content: space-between
+  justify-content: flex-start
 }
 
 .brand .logo {
   font-weight: 700;
   color: var(--text);
-  text-decoration: none
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px
+}
+
+.brand .logo .logo-img {
+  height: clamp(34px, 5vw, 52px);
+  width: auto;
+  max-width: 200px;
+  display: block;
+  object-fit: contain
+}
+
+.brand .logo .logo-dark {
+  display: none
+}
+
+html[data-theme="dark"] .brand .logo .logo-light {
+  display: none
+}
+
+html[data-theme="dark"] .brand .logo .logo-dark {
+  display: block
 }
 
 .nav-links {
   display: flex;
-  gap: 16px;
-  align-items: center
+  gap: 12px;
+  align-items: center;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -129,7 +153,7 @@ html[data-theme="dark"] .navbar {
 
 .nav-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center
 }
 
@@ -151,8 +175,17 @@ html[data-theme="dark"] .icon-btn {
 
 /* HERO */
 .hero {
-  padding: 70px 0 80px
+  background-image:
+    linear-gradient(rgba(0, 60, 120, 0.45), rgba(0, 60, 120, 0.45)),
+    url("https://images.unsplash.com/photo-1530545124313-ce5e8eae55af?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  /* Ensure hero text is white by default */
 }
+
 
 .hero-inner {
   display: grid;
@@ -163,11 +196,15 @@ html[data-theme="dark"] .icon-btn {
 
 .hero-copy h1 {
   font-size: clamp(1.6rem, 4vw, 2.6rem);
-  margin: 0 0 12px
+  margin: 0 0 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.lead {
-  color: var(--muted);
+.hero .lead {
+  color: #ffffff;
+  opacity: 1;
+  /* Ensure full visibility */
   margin: 0 0 18px
 }
 
@@ -188,13 +225,27 @@ html[data-theme="dark"] .icon-btn {
 .btn.primary {
   background: var(--color-primary);
   color: white;
-  box-shadow: var(--shadow)
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-primary);
+}
+
+.hero .btn.ghost {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.hero .btn.primary {
+  background: #0b63d7;
+  border-color: #0b63d7;
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(11, 99, 215, 0.35);
 }
 
 .btn.ghost {
   background: transparent;
   color: var(--text);
-  border-color: rgba(0, 0, 0, 0.06)
+  border-color: rgba(0, 0, 0, 0.1)
 }
 
 .btn:hover {
@@ -211,7 +262,8 @@ html[data-theme="dark"] .icon-btn {
   background: var(--surface);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
-  max-width: 360px
+  max-width: 360px;
+  color: var(--text)
 }
 
 /* SECTIONS */
@@ -496,7 +548,7 @@ html[data-theme="dark"] .site-footer {
      and matching the blue/red/white color theme. Use Unsplash-style params
      like `?auto=format&fit=crop&w=...&q=...` for consistent results.
   */
-  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?q=80&w=2070&auto=format&fit=crop');
+  background-image: url('https://images.unsplash.com/photo-1559298229-e9987edf9770?auto=format&fit=crop&q=80&w=2000');
   background-size: cover;
   background-position: center;
   content: "";
@@ -513,7 +565,7 @@ html[data-theme="dark"] .site-footer {
   inset: 0;
   z-index: -1;
   /* blue gradient overlay for text readability */
-  background: linear-gradient(180deg, rgba(11, 99, 215, 0.66), rgba(11, 99, 215, 0.66));
+  background: linear-gradient(180deg, rgba(0, 60, 120, 0.45), rgba(0, 60, 120, 0.45));
   mix-blend-mode: normal
 }
 
@@ -561,7 +613,8 @@ html[data-theme="dark"] .site-footer {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  color: var(--color-primary);
   font-size: 18px
 }
 
@@ -685,7 +738,9 @@ html[data-theme="dark"] .grid-4 .feature.card {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  margin-bottom: 12px
+  margin-bottom: 12px;
+  color: var(--color-primary);
+  /* Visibility fix for light mode */
 }
 
 /* Feature icon styling (centered circle) */
@@ -711,8 +766,13 @@ html[data-theme="dark"] .grid-4 .feature.card {
 .card-icon i,
 .feature-icon i,
 .chev i {
-  color: white;
-  /* Ensure visibility on primary backgrounds */
+  color: #fff;
+}
+
+/* Override for elements on light backgrounds in light mode */
+html:not([data-theme="dark"]) .card-icon i,
+html:not([data-theme="dark"]) .chev i {
+  color: var(--color-primary);
 }
 
 /* Ensure grid spacing looks balanced */
@@ -753,7 +813,8 @@ html[data-theme="dark"] .grid-4 .feature.card {
 }
 
 .contact-card .icon {
-  color: var(--color-primary)
+  color: var(--color-primary);
+  /* Improved visibility on hero */
 }
 
 /* Fix icon visibility in dark mode for navbar toggles */
@@ -834,8 +895,20 @@ html[data-theme="dark"] #lang-toggle-2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  background: rgba(11, 99, 215, 0.16);
   border-radius: 10px
+}
+
+.why-choose .feature-icon i {
+  color: var(--color-primary);
+}
+
+html[data-theme="dark"] .why-choose .feature-icon {
+  background: rgba(11, 99, 215, 0.55);
+}
+
+html[data-theme="dark"] .why-choose .feature-icon i {
+  color: #ffffff;
 }
 
 /* LOCATIONS BACKGROUND: soft office/map related image ---------------------------------------------------------
@@ -918,7 +991,12 @@ html[data-theme="dark"] .hero-small::after {
 }
 
 .hero .lead {
-  color: rgba(255, 255, 255, 0.9)
+  color: #ffffff
+}
+
+.hero-card h3,
+.hero-card p {
+  color: var(--text)
 }
 
 /* Smooth transitions for background changes */
