@@ -1,0 +1,8 @@
+{
+  "name": "Mukkam Travels & Online Services",
+  "description": "A modern travels and online services agency website with bilingual support (English and Malayalam), featuring scrolling animations and parallax effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
